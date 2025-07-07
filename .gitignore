@@ -1,0 +1,35 @@
+# Bytecode and Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+
+# Jupyter
+.ipynb_checkpoints
+
+# Model artifacts
+*.pkl
+*.joblib
+
+# Environment files
+.env
+.venv/
+venv/
+env/
+*.env
+
+# Logs
+*.log
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Data
+/data/*.csv
