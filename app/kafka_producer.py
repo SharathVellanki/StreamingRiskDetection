@@ -16,11 +16,11 @@ def generate_fake_transaction():
     }
 
 if __name__ == "__main__":
-    for i in range(20):
+    for i in range(500):
         message = generate_fake_transaction()
         producer.send(topic, message)
         print(f"[KafkaProducer] Sent message #{i+1}")
-        time.sleep(1)
+        time.sleep(0.01)
 
     producer.flush()
     producer.close()

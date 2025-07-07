@@ -1,21 +1,20 @@
-# app/main.py
-
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from app.model import predict_risk
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI()
 
-# Health check route
+# Enable Prometheus metrics
+Instrumentator().instrument(app).expose(app)
+
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
 
-# Request schema
 class PredictionRequest(BaseModel):
     features: list[float]
 
-# Predict route
 @app.post("/predict")
 def predict(request: PredictionRequest):
     if len(request.features) != 30:
